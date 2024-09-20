@@ -1,0 +1,55 @@
+
+<div class="capa-carga" *ngIf="cargando">
+  <div class="spinner-carga"></div>
+  <p>Cargando...</p>
+</div>
+
+
+<div class="contenido">
+  <h1 class="titulo-catalogo">Shows Infantiles CDMX</h1>
+  <div class="contenedor-catalogo">
+    <div class="tarjeta-show" *ngFor="let show of shows">
+      <div class="contenedor-imagen-show">
+        <img [src]="show.imagen" alt="{{ show.nombre }}" class="imagen-show"/>
+      </div>
+      
+      <p class="descripcion-show">{{ show.descripcion }}</p> 
+      <button (click)="mostrarDetalles(show)" class="boton-cotizar">
+        <i class="fas fa-money-bill-wave"></i> Cotizar
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<div class="ventana-modal" *ngIf="showSeleccionado">
+  <div class="contenido-modal">
+    <span class="boton-cerrar" (click)="cerrarFormulario()">&times;</span>
+    <h1 class="nombre-show">{{ showSeleccionado.nombre }}</h1>
+
+   
+    <form #formularioContacto="ngForm" (ngSubmit)="enviarMensaje(formularioContacto)" class="formulario-contacto">
+      <label for="nombre">Nombre (un nombre y un apellido):</label>
+      <input type="text" id="nombre" name="nombre" [(ngModel)]="contacto.nombre" required />
+      
+      <label for="telefono">Teléfono de contacto (sin espacios):</label>
+      <input type="tel" id="telefono" name="telefono" [(ngModel)]="contacto.telefono" required maxlength="10" />
+      
+      <label for="codigoPostal">Código Postal:</label>
+      <input type="text" id="codigoPostal" name="codigoPostal" [(ngModel)]="contacto.codigoPostal" required maxlength="5" />
+      
+      <button type="submit" class="boton-enviar">
+        <i class="fab fa-whatsapp"></i>
+        Enviar
+      </button>
+    </form>
+  </div>
+</div>
+@defer (on viewport) {
+  <app-carrusel-shows></app-carrusel-shows>
+}@placeholder {
+  <p>.</p>
+}
+
+
+

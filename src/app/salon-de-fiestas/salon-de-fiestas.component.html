@@ -1,0 +1,32 @@
+<h1 class="titulo">Salón de Fiestas</h1>
+<img src="/image.png" alt="Imagen decorativa" class="imagen-decorativa">
+
+<div class="paquetes">
+    <h2 class="titulo-como-llegar">Paquetes Disponibles</h2>
+
+    <div class="paquete" *ngFor="let paquete of paquetes" (click)="abrirModal(paquete.imagen)">
+        <h3 class="nombre-paquete">{{ paquete.nombre }}</h3>
+        <img [src]="paquete.imagen" alt="{{ paquete.nombre }}" class="imagen-paquete">
+    </div>
+</div>
+<div class="servicios-adicionales">
+    <h2 class="titulo-como-llegar">Servicios Adicionales</h2>
+
+    <div class="paquetes">
+        <div class="paquete" *ngFor="let servicio of servicios" (click)="abrirModal( servicio.imagen)">
+            <img [src]="servicio.imagen" alt="Servicio Adicional" class="imagen-paquete">
+        </div>
+    </div>
+</div>
+
+<h4 class="titulo-como-llegar">
+    ¿Cómo llegar? <i class="fas fa-map-marker-alt"></i>
+</h4>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.2094155770014!2d-98.86346562611809!3d19.316717044374162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce1f891481f153%3A0xe6ef113f0a2c4dda!2sCOCOLANDIA%20Sal%C3%B3n%20de%20fiestas!5e0!3m2!1ses-419!2smx!4v1726809999269!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<div id="modalImagen" class="modal" *ngIf="modalAbierto" (click)="cerrarModal()">
+    <span class="cerrar">&times;</span>
+    <img class="contenido-modal" [src]="imagenSeleccionada">
+</div>
+

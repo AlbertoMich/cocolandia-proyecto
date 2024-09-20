@@ -1,0 +1,29 @@
+<div class="contenedor">
+  <h1 class = 'titulo'>
+    Bienvenidos a 
+      <img src="logoicono.ico" alt="Icono" class="icono-personalizado">
+  </h1>
+  <p>¡El espacio de la diversión!</p>
+</div>
+
+<nav class="menu">
+  <ul>
+      <li><a routerLink="/quienes-somos" class="boton-menu" style="--color: #ff007f;"><i class="fas fa-question"></i> QUIÉNES SOMOS</a></li>
+      <li><a routerLink="/shows-infantiles-cdmx" class="boton-menu" style="--color: #00ff99;"><i class="fas fa-theater-masks"></i> SHOWS INFANTILES CDMX</a></li>
+      <li><a routerLink="/salon-de-fiestas" class="boton-menu" style="--color: #ffdd00;"><i class="fas fa-birthday-cake"></i>SALÓN DE FIESTAS</a></li>
+      <li><a routerLink="/cursos-de-verano" class="boton-menu" style="--color: #ff6600;"><i class="fas fa-sun"></i> CURSOS DE VERANO</a></li>
+      <li><a routerLink="/caravanas-infantiles" class="boton-menu" style="--color: #00aaff;"><i class="fas fa-flag"></i> CARAVANAS INFANTILES</a></li>
+  </ul>
+</nav>
+@defer (on viewport) {
+  <router-outlet></router-outlet>
+}@placeholder {
+  <p>.</p>
+}
+@defer (on viewport) {
+  <app-pie-de-pagina></app-pie-de-pagina>
+ }@placeholder {
+   <p>.</p>
+ }
+
+

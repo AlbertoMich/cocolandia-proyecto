@@ -1,0 +1,259 @@
+.ventana-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.ventana-modal.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.contenido-modal {
+    background: rgba(133, 3, 219, 0.466);
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 0 15px #00ffff;
+    color: #fff;
+    backdrop-filter: blur(5px);
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: zoom 0.5s ease-out; 
+}
+
+.boton-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 32px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.boton-cerrar:hover { color: #0059ff; }
+
+/* Formulario */
+.formulario-contacto {
+    width: 100%;
+}
+
+.formulario-contacto label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #00ffff;
+    font-size: 1em;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.formulario-contacto input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 2px solid #444;
+    border-radius: 6px;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.9em;
+    font-family: 'Orbitron', sans-serif;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.formulario-contacto input:focus {
+    background-color: #222;
+    border-color: #00ffff;
+    outline: none;
+}
+
+.boton-enviar {
+    background: linear-gradient(45deg, #00ff00, #00ff00);
+    color: #000;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: none; 
+    font-family: 'Orbitron', sans-serif;
+}
+
+.boton-enviar:hover {
+    background: linear-gradient(45deg, #00ff00, #00ff00);
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; 
+}
+
+.boton-enviar i {
+    font-size: 1.4em;
+    margin-left: 6px;
+}
+
+/* Títulos y Catálogo */
+.titulo-catalogo {
+    font-size: 2.5em;
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 1px 1px 0 #ff0000, -1px -1px 0 #00ff00, 1px -1px 0 #0000ff, -1px 1px 0 #ff00ff, 0 0 5px #ff00ffff, 0 0 10px #ff00ffff;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.contenedor-catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Shows */
+.tarjeta-show {
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background: #54038a6e;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    transition: transform 0.2s, box-shadow 0.3s;
+    color: #fff;
+    max-width: 45%; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tarjeta-show:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+}
+
+.contenedor-imagen-show {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.imagen-show {
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Cotización */
+.boton-cotizar {
+    background: linear-gradient(45deg, #00aaff, #ff77ff);
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    font-family: 'Orbitron', sans-serif;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #00aaff;
+}
+
+.boton-cotizar:hover {
+    background: linear-gradient(45deg, #0077cc, #ff55ff);
+    box-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff;
+}
+
+@media (max-width: 768px) {
+    .contenido-modal { width: 95%; max-width: 90%; }
+    .tarjeta-show { max-width: 100%; }
+    .formulario-contacto input, .boton-enviar { font-size: 0.8em; }
+    .formulario-contacto label, .boton-enviar { font-size: 0.9em; }
+}
+
+@media (max-width: 480px) {
+    .titulo-catalogo { font-size: 2em; }
+    .tarjeta-show { max-width: 100%; }
+}
+
+/* Carga */
+.capa-carga {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner-carga {
+    border: 4px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 50%;
+    border-top: 4px solid #ff8c00;
+    width: 50px;
+    height: 50px;
+    animation: girar 1s linear infinite; 
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.capa-carga p {
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    margin-top: 20px;
+    text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00; 
+}
+
+.descripcion-show {
+    color: #ffffff; 
+    font-family: 'Orbitron', sans-serif; 
+    font-size: 1em;
+    padding: 0 10px;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #ff00ff; 
+}
+
+.contenido-modal .descripcion-show {
+    color: #ffffff; 
+    margin-bottom: 20px; 
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #ff00ff;
+}
+
+
+@keyframes zoom {
+    from {
+        transform: scale(0.5); 
+        opacity: 0; 
+    }
+    to {
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+
+
+  
